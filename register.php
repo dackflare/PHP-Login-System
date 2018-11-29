@@ -38,6 +38,8 @@
                             <input class="uk-input" type="password" required="required" placeholder="Your Password">
                         </div>
 
+                        <div class="ui-margin uk-alert uk-alertldanger js-error" style='display:none'></div>
+
                         <div class="uk-margin">
                             <button class="uk-button uk-button-default" type="submit">Register</button>
 
