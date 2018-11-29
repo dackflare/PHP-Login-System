@@ -27,15 +27,15 @@ $(document)
 
     $.ajax({
         type: 'POST',
-        url: '/ajax/register.php',
+        url: '/php_login_system/ajax/register.php',
         data: dataObj,
         dataType: 'json',
-        async: trye,
+        async: true,
     })
     .done(function ajaxDone(data) {
         // whatever data is
         console.log(data);
-        if(data.redirect !++ undefined) {
+        if(data.redirect !== undefined) {
             window.location = data.redirect;
         }
     })
