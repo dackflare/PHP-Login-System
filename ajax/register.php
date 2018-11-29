@@ -18,7 +18,7 @@
 
         // Return the proper info to JavaScript to redirect us.
 
-        $return['redirect'] = '/index.php?this-was-a-redirect';
+        $return['redirect'] = '/php_login_system/index.php?this-was-a-redirect';
 
         echo json_encode($return, JSON_PRETTY_PRINT); exit;
     } else {
