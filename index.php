@@ -1,3 +1,50 @@
-timezone_transitions_get
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-epuiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="follow">
 
-<?php echo "HEllo World"; ?>
+        <title>Page Title</title>
+
+        <base href="/" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/css/uikit.min.css" />
+    </head>
+
+    <body>
+
+        <div class="uk-section uk-container">
+            <div class="uk-grid ui-child-width-1-3@s uk-child-width-1-3" uk-grid>
+
+                <form>
+                    <fieldset class="uk-fieldset">
+
+                        <legend class="uk-legend">Title</legend>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="email" required="required" placeholder="email@email.com">
+                        </div>
+
+                        <div class="uk-margin">
+                            <input class="uk-input" type="pasword" required="required" placeholder="Your Password">
+                        </div>
+
+                        <div class="uk-margin">
+                            <button class="uk-button uk-button-default" type="submit">Login</button>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+
+        <!-- JQuery is required -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- UIkit JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/js/uikit.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/js/uikit-icons.min.js"></script>
+    
+    </body>
+</html>
