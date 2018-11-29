@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="uk-margin">
-                            <input class="uk-input" type="pasword" required="required" placeholder="Your Password">
+                            <input class="uk-input" type="password" required="required" placeholder="Your Password">
                         </div>
 
                         <div class="uk-margin">
