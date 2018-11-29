@@ -1,3 +1,10 @@
+<?php 
+
+    // Allow the config
+    define('__CONFIG__', true);
+    // Require the config
+    require_once "inc/config.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -15,36 +22,19 @@
     <body>
 
         <div class="uk-section uk-container">
-            <div class="uk-grid ui-child-width-1-3@s uk-child-width-1-3" uk-grid>
+            <?php 
+                echo "Hello World! The date is ";
+                echo date("m d y");
+            ?>
+            <p>
+                <a href="/login.php">Login</a>
+                <a href="/register.php">Register</a>
+            </p>
 
-                <form>
-                    <fieldset class="uk-fieldset">
 
-                        <legend class="uk-legend">Title</legend>
-
-                        <div class="uk-margin">
-                            <input class="uk-input" type="email" required="required" placeholder="email@email.com">
-                        </div>
-
-                        <div class="uk-margin">
-                            <input class="uk-input" type="pasword" required="required" placeholder="Your Password">
-                        </div>
-
-                        <div class="uk-margin">
-                            <button class="uk-button uk-button-default" type="submit">Login</button>
-
-                    </fieldset>
-                </form>
-
-            </div>
         </div>
 
-        <!-- JQuery is required -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-        <!-- UIkit JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/js/uikit.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.24/js/uikit-icons.min.js"></script>
+        <?php require_once "inc/footer.php"; ?>
     
     </body>
 </html>
