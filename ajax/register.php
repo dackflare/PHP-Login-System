@@ -1,12 +1,14 @@
 <?php 
 
+
+
     // Allow the config
     define('__CONFIG__', true);
 
     // Require the config
     require_once "../inc/config.php"; 
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST' or 1==1) {
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Return data in json format
         //header('Content-Type: application/json');
 
@@ -17,7 +19,7 @@
 
         // Make sure the user does not exist already.
         $findUser = $con->prepare("SELECT user_id FROM users WHERE email = LOWER(:email) LIMIT 1");
-        $findUser->bindPeram(':email', $email, PDO::PARAM_STR);
+        $findUser->bindParam(':email', $email, PDO::PARAM_STR);
         $findUser->execute();
 
         if($findUser->rowCount() == 1) {
@@ -39,10 +41,8 @@
 
             $_SESSION['user_id'] = (int) $user_id;
 
-            $return['redirect'] = '/dashboard.php?message=welcome';
+            $return['redirect'] = '/php_login_system/index.php';
             $return['is_logged_in'] = true;
-            $return['name'] = "Bryan Lian";
-
         }
 
         echo json_encode($return, JSON_PRETTY_PRINT); exit;
