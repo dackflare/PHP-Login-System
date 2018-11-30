@@ -50,7 +50,7 @@ $(document)
     })
     .always(function ajaxAlwaysDoThis(data) {
         // always do
-        console.log("Always");        
+        console.log("Always???");        
     })
 
     return false;
