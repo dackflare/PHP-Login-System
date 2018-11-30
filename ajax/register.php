@@ -6,9 +6,9 @@
     // Require the config
     require_once "../inc/config.php"; 
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if($_SERVER['REQUEST_METHOD'] == 'POST' or 1==1) {
         // Return data in json format
-        header('Content-Type: application/json');
+        //header('Content-Type: application/json');
 
         $return = [];
         
@@ -24,10 +24,11 @@
             // User exists
             // We can also check to see if they are able to log in.
             $return['error'] = "You already have an account.";
+            $return['is_logged_in'] = false;
         } else{
             // User does not exist.  Adding them now.
 
-            $password = password_Hash($_POST['password'], PASSWORD_DEFAULT);
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             $addUser = $con->prepare("INSERT INTO users(email, password) VALUES(LOWER(:email), :password)");
             $addUser->bindParam(':email', $email, PDO::PARAM_STR);
@@ -39,10 +40,10 @@
             $_SESSION['user_id'] = (int) $user_id;
 
             $return['redirect'] = '/dashboard.php?message=welcome';
+            $return['is_logged_in'] = true;
+            $return['name'] = "Bryan Lian";
 
         }
-
-        $return['name'] = "Bryan Lian";
 
         echo json_encode($return, JSON_PRETTY_PRINT); exit;
     } else {

@@ -6,6 +6,9 @@
     }
 
     // Our config is below
+    // Allow errors
+    error_reporting(-1);
+    ini_set('display_errors', 'On');
 
     // Include the DB.php file.
     include_once "classes/DB.php";

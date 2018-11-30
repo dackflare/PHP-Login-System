@@ -30,20 +30,23 @@ $(document)
         url: '/php_login_system/ajax/register.php',
         data: dataObj,
         dataType: 'json',
-        async: true,
+        async: true, 
     })
     .done(function ajaxDone(data) {
         // whatever data is
         if(data.redirect !== undefined) {
              window.location = data.redirect;
+             console.log("Redirect");  
         } else if(data.error !== undefined) {
             _error
                 .text(data.error)
                 .show();
+                console.log("Error");  
         }
     })
     .fail(function ajaxFailed(e) {
         // this failed     
+        console.log("Failed");          
     })
     .always(function ajaxAlwaysDoThis(data) {
         // always do
