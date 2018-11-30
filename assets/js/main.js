@@ -34,20 +34,16 @@ $(document)
     })
     .done(function ajaxDone(data) {
         // whatever data is
-        console.log(data);
         if(data.redirect !== undefined) {
-            // window.location = data.redirect;
+             window.location = data.redirect;
         } else if(data.error !== undefined) {
             _error
                 .text(data.error)
                 .show();
         }
-
-        alert(data.name);
     })
     .fail(function ajaxFailed(e) {
-        // this failed
-        console.log(e);        
+        // this failed     
     })
     .always(function ajaxAlwaysDoThis(data) {
         // always do
