@@ -41,8 +41,7 @@
 
             $_SESSION['user_id'] = (int) $user_id;
 
-            $return['redirect'] = '/php_login_system/index.php';
-            $return['is_logged_in'] = true;
+            $return['redirect'] = '/php_login_system/dashboard.php';
         }
 
         echo json_encode($return, JSON_PRETTY_PRINT); exit;

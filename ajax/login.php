@@ -31,7 +31,7 @@
 
             if(password_verif($password, $hash)){
                 // user is signed in
-                $return['redirect'] = '/php_login_system/index.php';
+                $return['redirect'] = '/php_login_system/dashboard.php';
 
                 $_SESSION['user_id'] = $user_id;
             } else {

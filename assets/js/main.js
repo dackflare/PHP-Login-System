@@ -86,7 +86,7 @@ $(document)
 
     $.ajax({
         type: 'POST',
-        url: '/php_login_system/ajax/login.php',
+        url: '/php_login_system/ajax/register.php',
         data: dataObj,
         dataType: 'json',
         async: true, 
@@ -98,7 +98,7 @@ $(document)
              console.log("Redirect");  
         } else if(data.error !== undefined) {
             _error
-                .text(data.error)
+                .html(data.error)
                 .show();
                 console.log("Error");  
         }
