@@ -1,4 +1,6 @@
 $(document)
+
+// register code
 .on("submit", "form.js-register", function(event) {
     event.preventDefault();
 
@@ -57,7 +59,8 @@ $(document)
     return false;
 
 })
-// 
+
+// log in code
 .on("submit", "form.js-login", function(event) {
     event.preventDefault();
 
@@ -86,7 +89,7 @@ $(document)
 
     $.ajax({
         type: 'POST',
-        url: '/php_login_system/ajax/register.php',
+        url: '/php_login_system/ajax/login.php',
         data: dataObj,
         dataType: 'json',
         async: true, 
