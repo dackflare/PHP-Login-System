@@ -7,6 +7,20 @@
 
     forceLogin();
 
+    $user_id = $_SESSION['user_id'];
+    
+    $getUserInfo = $con->prepare("SELECT email, reg_time FROM users WHERE user_id = :user_id LIMIT 1");
+    $getUserInfo->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $getUserInfo->execute();
+
+    if($getUserInfo->rowCount() == 1) {
+        // User was found
+        $User = $getUserInfo->fetch(PDO::FETCH_ASSOC);
+    } else {
+        //User is not signed in
+        header("Location: /php_login_system/logout.php"); exit;
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +41,8 @@
 
         <div class="uk-section uk-container">   
             <legend class="uk-legend">Dashboard</legend>
-            You are signed in as user: <?php echo $_SESSION['user_id']; ?>
+            <p>Hello <?php echo $User['email']; ?>, you registered at <?php echo $User['reg_time']; ?>. <br>You are signed in as user <?php echo $_SESSION['user_id']; ?>.</p>
+            <p><a href="/php_login_system/logout.php">Logout</a></p>
         </div>
 
         <?php require_once "inc/footer.php"; ?>

@@ -45,6 +45,7 @@
 
                         <div class="uk-margin">
                             <button class="uk-button uk-button-default" type="submit">Register</button>
+                            <p><a href="/php_login_system/login.php">Login</a></p>
 
                     </fieldset>
                 </form>

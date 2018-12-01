@@ -17,19 +17,14 @@
         $email = Filter::String( $_POST['email'] );
         $password = $_POST['password'];
 
-        // Make sure the user does not exist already.
-        $findUser = $con->prepare("SELECT user_id, password FROM users WHERE email = LOWER(:email) LIMIT 1");
-        $findUser->bindParam(':email', $email, PDO::PARAM_STR);
-        $findUser->execute();
+        $user_found = User::find($email, true);
 
-        if($findUser->rowCount() == 1) {
+        if($user_found) {
             // User exists
-            $User = $findUser->fetch(PDO::FETCH_ASSOC);
+            $user_id = (int) $user_found['user_id'];
+            $hash = (string) $user_found['password'];
 
-            $user_id['user_id'] = (int) $User['user_id'];
-            $hash = $User['password'];
-
-            if(password_verif($password, $hash)){
+            if(password_verify($password, $hash)){
                 // user is signed in
                 $return['redirect'] = '/php_login_system/dashboard.php';
 
@@ -39,7 +34,6 @@
                 $return['error'] = "Invalid user email or password";
             }
 
-            $return['error'] = "You already have an account.";
         } else{
             // they need to create a new acount
             $return['error'] = "You do not have an account. <a href='/php_login_system/register.php'>Create one now?</a>";
